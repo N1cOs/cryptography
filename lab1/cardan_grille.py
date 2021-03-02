@@ -1,9 +1,11 @@
 import argparse
 import itertools as it
-from typing import List, Callable
+from typing import List, Any, Callable
+
+Any2DMatrix = List[List[Any]]
 
 
-def mirror_horizontally(matrix):
+def mirror_horizontally(matrix: Any2DMatrix) -> Any2DMatrix:
     """
     Mirrors `matrix` around y axis.
     Example:
@@ -22,7 +24,7 @@ def mirror_horizontally(matrix):
     return res
 
 
-def mirror_vertically(matrix):
+def mirror_vertically(matrix: Any2DMatrix) -> Any2DMatrix:
     """
     Mirrors `matrix` around x axis.
     Example:
