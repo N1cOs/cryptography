@@ -1,0 +1,5 @@
+ENCODED_SUFFIX = .enc
+DECODED_SUFFIX = .dec
+
+clean:
+	rm --force *$(ENCODED_SUFFIX) *$(DECODED_SUFFIX)
