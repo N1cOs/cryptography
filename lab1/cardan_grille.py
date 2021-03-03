@@ -87,21 +87,21 @@ class CardanGrille:
         res = []
         size = len(self.mask)
 
-        grille = self.mask.copy()
+        mask = self.mask.copy()
         transformations = it.cycle(self.transformations)
         while data:
-            window = self._read_grille(data, size)
+            grille = self._read_grille(data, size)
 
             for _ in range(size):
                 for i in range(size):
                     for j in range(size):
                         # skipping 0 values because of the padding in encryption stage
-                        if window[i][j] == 0:
+                        if grille[i][j] == 0:
                             continue
-                        if grille[i][j]:
-                            res.append(window[i][j])
+                        if mask[i][j]:
+                            res.append(grille[i][j])
                 transform = next(transformations)
-                grille = transform(grille)
+                mask = transform(mask)
 
             off = size * size
             data = data[off:]
