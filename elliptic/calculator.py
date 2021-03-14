@@ -110,6 +110,8 @@ class Calculator:
                     end = " + "
                 print(f"{p}", end=end)
 
+            print(res)
+
         return res
 
     def sum(self, pt1: Optional[Point], pt2: Optional[Point]) -> Optional[Point]:
