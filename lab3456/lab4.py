@@ -1,13 +1,13 @@
 import elliptic
-import lab34
+import lab3456
 
 if __name__ == "__main__":
     calc = elliptic.Calculator(
-        lab34.CURVE, lab34.GEN_POINT, private_key=lab34.PRIVATE_KEY
+        lab3456.CURVE, lab3456.GEN_POINT, private_key=lab3456.PRIVATE_KEY
     )
 
-    codec = lab34.AlphabetCodec()
-    el_gamal = lab34.ElGamal(calc, codec)
+    codec = lab3456.AlphabetCodec()
+    el_gamal = lab3456.ElGamal(calc, codec)
 
     cipher = [
         (elliptic.Point(283, 493), elliptic.Point(314, 127)),
