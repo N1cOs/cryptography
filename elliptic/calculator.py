@@ -143,12 +143,12 @@ class Calculator:
                 print(f"sum: {msg}")
 
         x3 = l ** 2 - pt1.x - pt2.x
-        y3 = l * (x3 - pt1.x) + pt1.y
-        pt3 = Point(x3 % self.curve.p, -y3 % self.curve.p)
+        y3 = l * (pt1.x - x3) - pt1.y
+        pt3 = Point(x3 % self.curve.p, y3 % self.curve.p)
 
         if self.log:
             print(f"sum: x3 = ({l}) ^ 2 - ({pt1.x}) - ({pt2.x}) = {x3}")
-            print(f"sum: y3 = ({l}) * [({x3}  - ({pt1.x}))] + ({pt1.y}) = {y3}")
+            print(f"sum: y3 = ({l}) * [({pt1.x})  - ({x3})] - ({pt1.y}) = {y3}")
             print(f"sum: P3: {pt3}")
 
         return pt3
