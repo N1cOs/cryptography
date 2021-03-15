@@ -1,8 +1,8 @@
+import common
 import elliptic
-import lab3456
 
 if __name__ == "__main__":
-    calc = elliptic.Calculator(lab3456.CURVE, lab3456.GEN_POINT)
+    calc = elliptic.Calculator(common.CURVE, common.GEN_POINT)
 
     p = elliptic.Point(59, 386)
     p2 = calc.times(p, 2)
