@@ -2,7 +2,7 @@ import common
 import elliptic
 
 if __name__ == "__main__":
-    calc = elliptic.Calculator(common.CURVE, common.GEN_POINT)
+    calc = elliptic.Calculator(common.CURVE)
 
     p = elliptic.Point(59, 386)
     p2 = calc.times(p, 2)

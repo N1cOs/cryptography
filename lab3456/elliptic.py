@@ -22,26 +22,26 @@ class Calculator:
     def __init__(
         self,
         curve: Curve,
-        gen_point: Point,
         *,
         public_key: Optional[Point] = None,
         private_key: Optional[int] = None,
         log: bool = False,
     ):
         self.curve = curve
-        self.gen_point = gen_point
         self.public_key = public_key
         self.private_key = private_key
         self.log = log
 
-    def encrypt_point(self, pt: Point, gen_factor: int) -> CipherPoint:
+    def encrypt_point(
+        self, pt: Point, gen_point: Point, gen_factor: int
+    ) -> CipherPoint:
         if self.public_key is None:
             raise ValueError("failed to encrypt point: public key is None")
 
         if self.log:
             print(f"encrypt_point: P={pt}, k={gen_factor}")
 
-        pt1 = self.times(self.gen_point, gen_factor)
+        pt1 = self.times(gen_point, gen_factor)
         pt2 = self.sum(pt, self.times(self.public_key, gen_factor))
 
         if self.log:

@@ -30,8 +30,11 @@ class AlphabetCodec:
 
 
 class ElGamal:
-    def __init__(self, calc: elliptic.Calculator, codec: AlphabetCodec):
+    def __init__(
+        self, calc: elliptic.Calculator, gen_point: elliptic.Point, codec: AlphabetCodec
+    ):
         self.calc = calc
+        self.gen_point = gen_point
         self.codec = codec
 
     def encrypt(self, text: str, gen_factors: List[int]) -> List[elliptic.CipherPoint]:
@@ -41,7 +44,7 @@ class ElGamal:
         res = []
         for sym, gen_factor in zip(text, gen_factors):
             pt = self.codec.encode(sym)
-            res.append(self.calc.encrypt_point(pt, gen_factor))
+            res.append(self.calc.encrypt_point(pt, self.gen_point, gen_factor))
         return res
 
     def decrypt(self, cipher: List[elliptic.CipherPoint]) -> str:
