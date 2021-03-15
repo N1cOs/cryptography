@@ -5,7 +5,7 @@ import elliptic
 if __name__ == "__main__":
     calc = elliptic.Calculator(common.CURVE, public_key=common.PUBLIC_KEY)
 
-    codec = eg.AlphabetCodec()
+    codec = eg.AlphabetCodec(common.ALPHABET_PATH)
     el_gamal = eg.ElGamal(calc, common.GEN_POINT, codec)
 
     text = "уверовать"

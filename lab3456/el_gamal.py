@@ -6,7 +6,7 @@ import elliptic
 
 
 class AlphabetCodec:
-    def __init__(self, path: str = "alphabet.json"):
+    def __init__(self, path: str):
         self._direct = self._load(path)
         self._reverse = {v: k for k, v in self._direct.items()}
         assert len(self._direct) == len(self._reverse)
